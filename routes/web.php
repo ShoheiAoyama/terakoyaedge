@@ -14,11 +14,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('user.welcome');
 });
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
-
+    return view('user.dashboard');
+})->middleware(['auth:users'])->name('dashboard');
+//URL::forceScheme('https');
 require __DIR__.'/auth.php';
+
